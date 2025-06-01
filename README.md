@@ -7,6 +7,17 @@ Here an Client script i have made for it although with some certain issues it wo
 I definately come back to this when i get time, as this can be a backbone for various projects.
 
 
+> Make sure that (remote device) sensor is sending data to current host with correct ip
+> And Listen on correct and configured UDP Port on the HOST Device
+
+```bash
+# Getting Started
+
+$ python3 main.py
+
+```
+
+
 
 # References
 
