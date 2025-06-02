@@ -3,9 +3,14 @@ from enum import Enum, auto
 import numpy as np
 import binascii
 
+
+LISTEN_PORT = 9000
+LISTEN_INTERFACE = "0.0.0.0"
+BUFFER_SIZE = 50
+
+
 sock = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
-sock.bind(("0.0.0.0", 9000))
-print("Bindned Port")
+sock.bind((LISTEN_INTERFACE, LISTEN_PORT))
 
 def fetch(buffer):
     for x in buffer:
@@ -56,12 +61,12 @@ def consume(fetcher):
 
 
 while True:
-    buffer = sock.recv(100)
+    buffer = sock.recv(BUFFER_SIZE)
     fetcher = fetch(buffer)
     try:
         tag, k, v = consume(fetcher)
         u = np.frombuffer(np.array(v[::-1], dtype=np.uint8).tobytes(), dtype=np.float32)
-        print(tag, k, int(u[1]))
+        print(tag, k, u)
         state = STATE.STARTED
     except StopIteration as s:
         continue
