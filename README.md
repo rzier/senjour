@@ -17,6 +17,10 @@ $ python3 main.py
 
 ```
 
+Note to self (a slight blunder).
+
+- Unread UDP Datagram bytes are discarded as they arent buffered by kernel as in TCP.
+- recvfrom (for sender socket address).
 
 
 # References

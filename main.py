@@ -6,7 +6,7 @@ import binascii
 
 LISTEN_PORT = 9000
 LISTEN_INTERFACE = "0.0.0.0"
-BUFFER_SIZE = 50
+BUFFER_SIZE = 1024
 
 
 sock = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
